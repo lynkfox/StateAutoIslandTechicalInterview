@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StateAutoTechnicalInterview
 {
@@ -59,7 +60,10 @@ namespace StateAutoTechnicalInterview
             return ((x >= 0 && x <= 4) && (y >= 0 && y <= 3));
          }
 
-       
+        public List<int[,]> DefineIslandStartingAt(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

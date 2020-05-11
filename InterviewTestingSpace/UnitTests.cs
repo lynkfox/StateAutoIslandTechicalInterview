@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StateAutoTechnicalInterview;
+using System.Linq;
 
 namespace InterviewTestingSpace
 {
@@ -32,21 +33,33 @@ namespace InterviewTestingSpace
         int[,] testGrid2 = new int[,] { { 1, 1, 0, 1, 0 }, { 0, 0, 0, 1, 0 }, { 1, 1, 0, 0, 0 }, { 0, 0, 0, 0, 0 } };
 
 
-    [TestMethod]
+        [TestMethod]
         public void IsThisGridSpaceLand()
         {
-            Map testIsland = new Map(testGrid1);
+            Map testMap = new Map(testGrid1);
 
-            Assert.IsTrue(testIsland.IsThisSpaceLand(0, 0));
+            Assert.IsTrue(testMap.IsThisSpaceLand(0, 0));
         }
 
-       [TestMethod]
-       public void AreAnyNeighborsLandToo()
+        [TestMethod]
+        public void AreAnyNeighborsLandToo()
         {
-            Map testIsland = new Map(testGrid1);
+            Map testMap = new Map(testGrid1);
 
-            Assert.IsFalse(testIsland.AreAnyNeighborsLand(4, 3));
+            Assert.IsFalse(testMap.AreAnyNeighborsLand(4, 3));
            
+        }
+
+        [TestMethod]
+        public void DefineIslandStartingAtReturnsCollectionOfCoordinatesConnectedByLandToStartingCoordinate()
+        {
+            Map testMap= new Map(testGrid1);
+
+            var anIsland = testMap.DefineIslandStartingAt(0, 0);
+
+            int expectedNumberOfLands = 8;
+
+            Assert.AreEqual(expectedNumberOfLands, anIsland.Count());
         }
     }
 }
