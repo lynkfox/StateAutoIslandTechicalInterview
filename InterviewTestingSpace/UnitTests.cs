@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using InterviewTestingSpace;
+using StateAutoTechnicalInterview;
 
 namespace InterviewTestingSpace
 {
@@ -30,7 +30,7 @@ namespace InterviewTestingSpace
         {
             Island testIsland = new Island();
 
-            Assert.IsTrue(testIsland.IsThisSpaceLand(x, y));
+            Assert.IsTrue(testIsland.IsThisSpaceLand(0, 0));
         }
     }
 }
