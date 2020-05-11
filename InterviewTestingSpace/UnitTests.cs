@@ -45,7 +45,8 @@ namespace InterviewTestingSpace
         {
             Map testIsland = new Map(testGrid1);
 
-            Assert.IsTrue(testIsland.AreAnyNeighborsLand(0, 0));
+            Assert.IsFalse(testIsland.AreAnyNeighborsLand(4, 3));
+           
         }
     }
 }
