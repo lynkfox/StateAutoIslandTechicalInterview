@@ -2,11 +2,20 @@
 
 namespace StateAutoTechnicalInterview
 {
-    public class Island
+    public class Map
     {
-        public bool IsThisSpaceLand(object x, object y)
+        private int[,] Grid;
+
+        public Map(int[,] testGrid1)
         {
-            throw new NotImplementedException();
+            this.Grid = testGrid1;
+        }
+
+
+        public bool IsThisSpaceLand(int x, int y)
+        {
+
+            return Grid[y, x] == 1;
         }
     }
 }

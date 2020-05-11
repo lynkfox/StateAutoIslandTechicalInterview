@@ -12,23 +12,30 @@ namespace InterviewTestingSpace
          * 
          * All edge spaces are considered 0's
 
-        /*
-        11010
-        00010
-        11000
-        00000
-        */
+        
 
-        /*
+        /* Test Grid 1
         11110
         11010
         11000
         00000
         */
-        [TestMethod]
+
+        /* Test Grid 2
+        11010
+        00010
+        11000
+        00000
+        */
+        int[,] testGrid1 = new int[,] { { 1, 1, 1, 1, 0 }, { 1, 1, 0, 1, 0 }, { 1, 1, 0, 0, 0 }, { 0, 0, 0, 0, 0 } };
+
+        int[,] testGrid2 = new int[,] { { 1, 1, 0, 1, 0 }, { 0, 0, 0, 1, 0 }, { 1, 1, 0, 0, 0 }, { 0, 0, 0, 0, 0 } };
+
+
+    [TestMethod]
         public void IsThisGridSpaceLand()
         {
-            Island testIsland = new Island();
+            Map testIsland = new Map(testGrid1);
 
             Assert.IsTrue(testIsland.IsThisSpaceLand(0, 0));
         }
