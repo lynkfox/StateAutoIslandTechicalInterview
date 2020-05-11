@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StateAutoTechnicalInterview;
-using System.Linq;
 
 namespace InterviewTestingSpace
 {
@@ -42,11 +41,12 @@ namespace InterviewTestingSpace
         }
 
         [TestMethod]
-        public void AreAnyNeighborsLandToo()
+        public void WhichNeighborsAreLand()
         {
             Map testMap = new Map(testGrid1);
+            int expectedNeighborCount = 0;
 
-            Assert.IsFalse(testMap.AreAnyNeighborsLand(4, 3));
+            Assert.AreEqual(expectedNeighborCount, testMap.WhichNeighborsAreLand(4, 3).Count);
            
         }
 
@@ -59,7 +59,7 @@ namespace InterviewTestingSpace
 
             int expectedNumberOfLands = 8;
 
-            Assert.AreEqual(expectedNumberOfLands, anIsland.Count());
+            Assert.AreEqual(expectedNumberOfLands, anIsland.Count);
         }
     }
 }

@@ -19,51 +19,74 @@ namespace StateAutoTechnicalInterview
             return Grid[y, x] == 1;
         }
 
-        public bool AreAnyNeighborsLand(int x, int y)
+        public List<int[]> WhichNeighborsAreLand(int x, int y)
         {
-            bool hasLandNeighbors = false;
+            List<int[]> NeighboringLandCoords = new List<int[]>();
             
             if(NotOutOfBounds(x,y+1)) //North
             {
                 if(IsThisSpaceLand(x, y+1))
                 {
-                    hasLandNeighbors = true;
+                    NeighboringLandCoords.Add(new int[] { x, y + 1 });
                 }
             }
             if (NotOutOfBounds(x+1, y)) //East
             {
                 if (IsThisSpaceLand(x+1, y))
                 {
-                    hasLandNeighbors = true;
+                    NeighboringLandCoords.Add(new int[] { x + 1, y });
                 }
             }
             if (NotOutOfBounds(x, y - 1)) //South
             {
                 if (IsThisSpaceLand(x, y - 1))
                 {
-                    hasLandNeighbors = true;
+                    NeighboringLandCoords.Add(new int[] { x, y - 1 });
                 }
             }
             if (NotOutOfBounds(x-1, y)) //West
             {
                 if (IsThisSpaceLand(x-1, y))
                 {
-                    hasLandNeighbors = true;
+                    NeighboringLandCoords.Add(new int[] { x - 1, y });
                 }
             }
 
-            return hasLandNeighbors;
+            return NeighboringLandCoords;
         }
 
         private bool NotOutOfBounds(int x, int y)
         {
             return ((x >= 0 && x <= 4) && (y >= 0 && y <= 3));
-         }
-
-        public List<int[,]> DefineIslandStartingAt(int x, int y)
-        {
-            throw new NotImplementedException();
         }
+
+        public List<int[]> DefineIslandStartingAt(int x, int y)
+        {
+            List<int[]> CoordinatesOfIsland = new List<int[]>();
+            int TotalLands = 0;
+
+            if (IsThisSpaceLand(x, y))
+            {
+                CoordinatesOfIsland.Add(new int[] { x, y });
+
+                List<int[]> LandNeighbors = WhichNeighborsAreLand(x, y);
+
+                TotalLands = LandNeighbors.Count;
+
+                if(TotalLands == 0)
+                {
+                    return CoordinatesOfIsland;
+                }
+                else
+                {
+                    
+                }
+
+            }
+
+            return CoordinatesOfIsland;
+        }
+
     }
 }
 
