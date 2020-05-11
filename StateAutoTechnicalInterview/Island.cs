@@ -17,6 +17,11 @@ namespace StateAutoTechnicalInterview
 
             return Grid[y, x] == 1;
         }
+
+        public bool AreAnyNeighborsLand(int v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

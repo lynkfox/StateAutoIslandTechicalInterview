@@ -39,5 +39,13 @@ namespace InterviewTestingSpace
 
             Assert.IsTrue(testIsland.IsThisSpaceLand(0, 0));
         }
+
+       [TestMethod]
+       public void AreAnyNeighborsLandToo()
+        {
+            Map testIsland = new Map(testGrid1);
+
+            Assert.IsTrue(testIsland.AreAnyNeighborsLand(0, 0));
+        }
     }
 }
