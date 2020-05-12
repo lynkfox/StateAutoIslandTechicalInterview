@@ -1,3 +1,4 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StateAutoTechnicalInterview;
 
@@ -51,15 +52,27 @@ namespace InterviewTestingSpace
         }
 
         [TestMethod]
+        public void RetrieveCoordinatesOfAllNeighborsOfThisSpot()
+        {
+            Map testMap = new Map(testGrid1);
+            int expectedNumberOfNeighbors = 2;
+            int actualNumberOfNeighbors = testMap.AllNeighborCoords(0, 0).Count;
+
+            Assert.AreEqual(expectedNumberOfNeighbors, actualNumberOfNeighbors);
+        }
+
+        [TestMethod]
         public void DefineIslandStartingAtReturnsCollectionOfCoordinatesConnectedByLandToStartingCoordinate()
         {
             Map testMap= new Map(testGrid1);
-
-            var anIsland = testMap.DefineIslandStartingAt(0, 0);
+            Island anIsland = testMap.DefineIslandStartingAt(0, 0);
+            
 
             int expectedNumberOfLands = 8;
 
-            Assert.AreEqual(expectedNumberOfLands, anIsland.Count);
+            Assert.AreEqual(expectedNumberOfLands, anIsland.AllCoordinatesOfIsland.Count);
         }
+
+       
     }
 }
