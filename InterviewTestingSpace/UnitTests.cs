@@ -71,6 +71,15 @@ namespace InterviewTestingSpace
 
             Assert.AreEqual(expectedCount, testMap.Lands.Count);
         }
+
+        [TestMethod]
+        public void LandAlreadyCountedTrueIfAlreadySearched()
+        {
+            Map testMap = new Map(testGrid1);
+            testMap.Search();
+
+            Assert.IsTrue(testMap.AlreadyHasNeighborSearched(0, 1));
+        }
         
        
     }

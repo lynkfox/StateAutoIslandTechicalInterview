@@ -82,9 +82,13 @@ namespace StateAutoTechnicalInterview
                     }
                 }
             }
-
             return totalIslands;
-            
+        }
+
+        public bool AlreadyHasNeighborSearched(int x, int y)
+        {
+
+            return Lands.Any(search => search.SequenceEqual(new int[] { x, y }));
         }
     }
 }
