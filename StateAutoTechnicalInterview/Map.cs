@@ -25,32 +25,11 @@ namespace StateAutoTechnicalInterview
         {
             List<int[]> NeighboringLandCoords = new List<int[]>();
 
-            if (NotOutOfBounds(x, y + 1)) //North
+            foreach(int[] coords in AllNeighborCoords(x, y))
             {
-                if (IsThisSpaceLand(x, y + 1))
+                if(IsThisSpaceLand(coords[0], coords[1]))
                 {
-                    NeighboringLandCoords.Add(new int[] { x, y + 1 });
-                }
-            }
-            if (NotOutOfBounds(x + 1, y)) //East
-            {
-                if (IsThisSpaceLand(x + 1, y))
-                {
-                    NeighboringLandCoords.Add(new int[] { x + 1, y });
-                }
-            }
-            if (NotOutOfBounds(x, y - 1)) //South
-            {
-                if (IsThisSpaceLand(x, y - 1))
-                {
-                    NeighboringLandCoords.Add(new int[] { x, y - 1 });
-                }
-            }
-            if (NotOutOfBounds(x - 1, y)) //West
-            {
-                if (IsThisSpaceLand(x - 1, y))
-                {
-                    NeighboringLandCoords.Add(new int[] { x - 1, y });
+                    NeighboringLandCoords.Add(coords);
                 }
             }
 
