@@ -8,6 +8,8 @@ namespace StateAutoTechnicalInterview
     {
         private int[,] Grid;
 
+        public List<int[]> Lands { get; set; } = new List<int[]>();
+
         public Map(int[,] testGrid1)
         {
             this.Grid = testGrid1;
@@ -69,7 +71,20 @@ namespace StateAutoTechnicalInterview
 
         public int Search()
         {
-            throw new NotImplementedException();
+            int totalIslands = 0;
+            for(int x=0; x < 5; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    if(IsThisSpaceLand(x,y))
+                    {
+                        Lands.Add(new int[] { x, y });
+                    }
+                }
+            }
+
+            return totalIslands;
+            
         }
     }
 }

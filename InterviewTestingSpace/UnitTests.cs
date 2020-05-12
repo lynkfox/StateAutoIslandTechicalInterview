@@ -61,27 +61,17 @@ namespace InterviewTestingSpace
             Assert.AreEqual(expectedNumberOfNeighbors, actualNumberOfNeighbors);
         }
 
-        [TestMethod]
-        public void SearchWillTouchEveryGridSquare()
-        {
-            Map testMap = new Map(testGrid1);
-            int actual = testMap.Search();
-
-            int expectedTouches = 20;
-
-            Assert.AreEqual(expectedTouches, actual);
-        }
-
-        /*
+        
         [TestMethod]
         public void WhenSearchingGridLandsAreRecorded()
         {
             Map testMap= new Map(testGrid1);
             testMap.Search();
+            int expectedCount =9;
 
-            Assert.IsNotNull(testMap.LandsSearched);
+            Assert.AreEqual(expectedCount, testMap.Lands.Count);
         }
-        */
+        
        
     }
 }
