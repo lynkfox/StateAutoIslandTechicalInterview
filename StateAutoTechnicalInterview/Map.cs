@@ -78,17 +78,34 @@ namespace StateAutoTechnicalInterview
                 {
                     if(IsThisSpaceLand(x,y))
                     {
-                        Lands.Add(new int[] { x, y });
+                        if(!AlreadyHasCoordsSearched(x,y))
+                        {
+                            totalIslands++;
+                            DiscoverFullIsland(x, y);
+                        }
                     }
                 }
             }
             return totalIslands;
         }
 
-        public bool AlreadyHasNeighborSearched(int x, int y)
+        public bool AlreadyHasCoordsSearched(int x, int y)
         {
 
             return Lands.Any(search => search.SequenceEqual(new int[] { x, y }));
+        }
+
+        public void DiscoverFullIsland(int x, int y)
+        {
+            Lands.Add(new int[] { x, y });
+
+            foreach (int[] coords in WhichNeighborsAreLand(x,y))
+            {
+                if(!AlreadyHasCoordsSearched(coords[0],coords[1]))
+                {
+                    DiscoverFullIsland(coords[0], coords[1]);
+                }
+            }
         }
     }
 }

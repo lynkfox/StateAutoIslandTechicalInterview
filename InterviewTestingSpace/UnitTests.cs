@@ -78,9 +78,18 @@ namespace InterviewTestingSpace
             Map testMap = new Map(testGrid1);
             testMap.Search();
 
-            Assert.IsTrue(testMap.AlreadyHasNeighborSearched(0, 1));
+            Assert.IsTrue(testMap.AlreadyHasCoordsSearched(0, 1));
         }
         
+        [TestMethod]
+        public void SearchReturnsProperNumberOfIslands()
+        {
+            Map testMap = new Map(testGrid1);
+            Map testMap2 = new Map(testGrid2);
+
+            Assert.AreEqual(1, testMap.Search());
+            Assert.AreEqual(3, testMap2.Search());
+        }
        
     }
 }
