@@ -16,7 +16,6 @@ namespace StateAutoTechnicalInterview
 
         public bool IsThisSpaceLand(int x, int y)
         {
-
             return Grid[y, x] == 1;
         }
 
@@ -68,7 +67,7 @@ namespace StateAutoTechnicalInterview
             return NeighboringCoords;
         }
 
-        public Island DefineIslandStartingAt(int x, int y)
+        public int Search()
         {
             throw new NotImplementedException();
         }

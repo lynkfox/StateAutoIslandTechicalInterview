@@ -62,17 +62,26 @@ namespace InterviewTestingSpace
         }
 
         [TestMethod]
-        public void DefineIslandStartingAtReturnsCollectionOfCoordinatesConnectedByLandToStartingCoordinate()
+        public void SearchWillTouchEveryGridSquare()
         {
-            Map testMap= new Map(testGrid1);
-            Island anIsland = testMap.DefineIslandStartingAt(0, 0);
-            
+            Map testMap = new Map(testGrid1);
+            int actual = testMap.Search();
 
-            int expectedNumberOfLands = 8;
+            int expectedTouches = 20;
 
-            Assert.AreEqual(expectedNumberOfLands, anIsland.AllCoordinatesOfIsland.Count);
+            Assert.AreEqual(expectedTouches, actual);
         }
 
+        /*
+        [TestMethod]
+        public void WhenSearchingGridLandsAreRecorded()
+        {
+            Map testMap= new Map(testGrid1);
+            testMap.Search();
+
+            Assert.IsNotNull(testMap.LandsSearched);
+        }
+        */
        
     }
 }
